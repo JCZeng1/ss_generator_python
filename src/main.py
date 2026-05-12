@@ -7,7 +7,7 @@ import sys
 def prepare_and_copy():
     print(os.getcwd())
     static = './static'
-    public = './public'
+    public = './docs'
     if not os.path.exists(public):
         os.mkdir(public)
     else:
