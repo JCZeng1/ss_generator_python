@@ -2,7 +2,7 @@ from textnode import *
 from gencontent import generate_page, generate_pages_recursive
 import os
 import shutil
-
+import sys
 
 def prepare_and_copy():
     print(os.getcwd())
@@ -36,10 +36,13 @@ def recursive_copy(src, dst):
 
 
 def main():
-    print("hello world")
+    basepath = "/"
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    print(f"Basepath: {basepath}")
     prepare_and_copy()
 #    generate_page("content/index.md", "template.html", "public/index.html")
-    generate_pages_recursive("content", "template.html", "public")
+    generate_pages_recursive("content", "template.html", "docs", basepath)
 
 
 if __name__ == "__main__":
